@@ -3,7 +3,9 @@ const learnSchema = new mongoose.Schema({
     video:{
         type:String
     },
-    document:{
+    title:{
      type:String
     }
-})
+},{timestamps:true})
+const learn = mongoose.model('Learns', learnSchema)
+module.exports = learn

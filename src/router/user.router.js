@@ -1,6 +1,11 @@
 const express = require('express')
 const userController = require('../controller/user.controller')
+const learnController = require('../controller/learn.controller')
+const upload = require('../helper/upload')
+const {verifyToken,getRole} = require('../middleware/verifyToken')
 const router = express.Router()
-router.post('/signUp', userController.signUp)
+router.post('/signUp',upload.single('profile'), userController.signUp)
 router.post('/signIn',userController.signIn)
+router.post('/video', learnController.post_video)
+router.get('/video', learnController.get_video)
 module.exports  = router
