@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const rulesSchema = new mongoose.Schema({
-    file_document:{
-        type:String
-    },
     title:{
      type:String
+    },
+    description:{
+        type:String
     }
 },{timestamps:true})
 const rule = mongoose.model('Rules', rulesSchema)

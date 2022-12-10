@@ -1,8 +1,8 @@
-const ruleModel = require("../model/learn.model");
+const ruleModel = require("../model/rule.model");
 const { status_Code } = require("../middleware/statusCode");
 exports.post_rule = async (req, res) => {
   try {
-    if (!req.body.video && !req.body.title) {
+    if (!req.body.title && !req.body.title) {
       return res
         .status(status_Code.bad_request)
         .json({ message: "The body is not emty" });
@@ -10,8 +10,8 @@ exports.post_rule = async (req, res) => {
     const newData = {
       ...req.body,
     };
-    const video = await ruleModel.create(newData);
-    return res.status(status_Code.success).json(video);
+    const rule = await ruleModel.create(newData);
+    return res.status(status_Code.success).json(rule);
   } catch (error) {
     return res
       .status(status_Code.Server_error)
@@ -20,9 +20,10 @@ exports.post_rule = async (req, res) => {
 };
 exports.get_rule = async (req, res) => {
   try {
-    const video = await ruleModel.find({}).select('-__v')
-    return res.status(status_Code.success).json(video)
+    const rule = await ruleModel.find({}).select('-__v')
+    return res.status(status_Code.success).json(rule)
   } catch (error) {
     return res.status(status_Code.Server_error);
   }
 };
+

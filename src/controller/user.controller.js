@@ -8,8 +8,7 @@ exports.signUp = async (req, res) => {
       !req.body.username &&
       !req.body.password &&
       !req.body.position &&
-      !req.body.phone &&
-      !req.body.profile
+      !req.body.phone 
     ) {
       return res.status(status_Code.bad_request).json({ message: "The body is not emty" });
     } else {
@@ -37,7 +36,6 @@ exports.signUp = async (req, res) => {
         password: user.password,
         position: user.position,
         phone: user.phone,
-        profile: user.profile,
         role: user.role,
         token: asignToken,
       };

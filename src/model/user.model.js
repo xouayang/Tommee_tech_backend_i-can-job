@@ -12,9 +12,6 @@ const userSchema = new mongoose.Schema({
    phone:{
     type:String
    },
-  profile:{
-    type:String
-  },
   role:{
     type:String
   }

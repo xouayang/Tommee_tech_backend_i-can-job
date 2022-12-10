@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const learnSchema = new mongoose.Schema({
     video:{
-        type:String
+        type:Object
     },
     title:{
      type:String

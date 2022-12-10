@@ -8,9 +8,14 @@ app.use(cors())
 app.use(express.json({limit:'10mb', extends:true}))
 app.use(express.urlencoded({limit:'10mb', extended:true}))
 dbconfig()
-app.use('/uploads', express.static(__dirname + '/uploads'));
 const userRouter = require('./src/router/user.router')
+const learnRouter = require('./src/router/learn.router')
+const ruleRouter = require('./src/router/rule.router')
+app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/videos', express.static(__dirname + '/videos'));
 app.use('/', userRouter)
+app.use('/', learnRouter)
+app.use('/', ruleRouter)
 const port = process.env.PORT
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
