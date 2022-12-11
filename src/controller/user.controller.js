@@ -78,3 +78,14 @@ exports.signIn = async (req, res) => {
     return res.status(status_Code.Server_error).json({ message: error.message });
   }
 };
+exports.getUsers = async (req, res) => {
+  try {
+    const user = await userModel.find({}).select('-__v')
+    if(!user) {
+      return res.status(status_Code.NotFound).json({message:'Not found data'})
+    }
+    return res.status(status_Code.success).json(user)
+  } catch (error) {
+   return res.status(status_Code.Server_error).json({message:error.message}) 
+  }
+}

@@ -25,5 +25,5 @@ exports.get_rule = async (req, res) => {
   } catch (error) {
     return res.status(status_Code.Server_error);
   }
-};
+}
 
