@@ -2,7 +2,7 @@ const ruleModel = require("../model/rule.model");
 const { status_Code } = require("../middleware/statusCode");
 exports.post_rule = async (req, res) => {
   try {
-    if (!req.body.title && !req.body.title) {
+    if (!req.body.title && !req.body.description) {
       return res
         .status(status_Code.bad_request)
         .json({ message: "The body is not emty" });
